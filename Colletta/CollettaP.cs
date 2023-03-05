@@ -40,42 +40,21 @@ namespace Colletta
                 Raccolta.Remove(p.Id);
                 QuotaTotale -= p.Quota;
                 n--;
-                /*foreach (KeyValuePair<string, Partecipante> kvp in Raccolta)
-                {
-                    if (Raccolta[kvp.Key].Nome == p.Nome)
-                    {
-                        Raccolta.Remove(key);
-                        QuotaTotale -= p.Quota;
-                        n--;
-                    }
-                }*/
             }
             else
                 throw new Exception("il reference del partecipante è null");
         }
-        public void Modifica(Partecipante p)
+        public void Modifica(Partecipante p,Partecipante n)
         {
             if (p != null)
             {
-                QuotaTotale -= Raccolta[key].Quota;
-                Raccolta[p.Id] = p;
-                QuotaTotale += p.Quota;
-                /*foreach (KeyValuePair<string, Partecipante> kvp in Raccolta)
-                {
-                    if (Raccolta[kvp.Key].Nome == p.Nome)
-                    {
-                        QuotaTotale -= Raccolta[key].Quota;
-                        Raccolta[key] = p;
-                        QuotaTotale += p.Quota;
-                    }
-                }*/
+                QuotaTotale -= Raccolta[p.Id].Quota;
+                n.Id = p.Id;
+                Raccolta[p.Id] = n;
+                QuotaTotale += n.Quota;
             }
             else
                 throw new Exception("il reference del partecipante è null");
-        }
-        public int getCount()
-        {
-            return Raccolta.Count;
         }
         public string getKey(Partecipante p)
         {
@@ -83,9 +62,7 @@ namespace Colletta
             foreach(KeyValuePair<string,Partecipante> kvp in Raccolta)
             {
                 if (Raccolta[kvp.Key].Nome == p.Nome)
-                {
                     temp = kvp.Key;
-                }
             }
             return temp;
         }

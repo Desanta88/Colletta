@@ -35,6 +35,8 @@ namespace Colletta
                 ListViewItem riga = new ListViewItem(colletta.Raccolta[colletta.getKey(temp)].ToString().Split(';'));
                 listView1.Items.Add(riga);
                 totaleQuota.Text = "Totale:"+colletta.QuotaTotale.ToString();
+                textBoxP.Text = "";
+                textBoxQ.Text = "";
             }
             else
                 throw new Exception("compilare tutte le textbox");
@@ -55,7 +57,27 @@ namespace Colletta
 
         private void ModificaQuota_Click(object sender, EventArgs e)
         {
-
+            int selezionato = 0;
+            string key;
+            temp = new Partecipante(textBoxP.Text, float.Parse(textBoxQ.Text));
+            if (listView1.SelectedIndices.Count > 0)
+                selezionato = listView1.SelectedIndices[0];
+            key = listView1.SelectedItems[0].Text;
+            if (textBoxP.Text != "" && textBoxQ.Text != "")
+            {
+                colletta.Modifica(colletta.Raccolta[key],temp);
+                listView1.Items.Clear();
+                foreach (KeyValuePair<string, Partecipante> kvp in colletta.Raccolta)
+                {
+                    ListViewItem riga = new ListViewItem(colletta.Raccolta[kvp.Key].ToString().Split(';'));
+                    listView1.Items.Add(riga);
+                }
+                totaleQuota.Text = "Totale:" + colletta.QuotaTotale.ToString();
+                textBoxP.Text = "";
+                textBoxQ.Text = "";
+            }
+            else
+                throw new Exception("compilare tutte le textbox");
         }
     }
 }
