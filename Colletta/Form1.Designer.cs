@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxP = new System.Windows.Forms.TextBox();
+            this.textBoxQ = new System.Windows.Forms.TextBox();
             this.AggiuntaQuota = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -49,19 +49,19 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // textBox1
+            // textBoxP
             // 
-            this.textBox1.Location = new System.Drawing.Point(538, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxP.Location = new System.Drawing.Point(538, 100);
+            this.textBoxP.Name = "textBoxP";
+            this.textBoxP.Size = new System.Drawing.Size(168, 20);
+            this.textBoxP.TabIndex = 1;
             // 
-            // textBox2
+            // textBoxQ
             // 
-            this.textBox2.Location = new System.Drawing.Point(538, 208);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(168, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBoxQ.Location = new System.Drawing.Point(538, 208);
+            this.textBoxQ.Name = "textBoxQ";
+            this.textBoxQ.Size = new System.Drawing.Size(168, 20);
+            this.textBoxQ.TabIndex = 2;
             // 
             // AggiuntaQuota
             // 
@@ -71,6 +71,7 @@
             this.AggiuntaQuota.TabIndex = 3;
             this.AggiuntaQuota.Text = "Aggiungi Quota";
             this.AggiuntaQuota.UseVisualStyleBackColor = true;
+            this.AggiuntaQuota.Click += new System.EventHandler(this.AggiuntaQuota_Click);
             // 
             // button2
             // 
@@ -130,8 +131,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.AggiuntaQuota);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxQ);
+            this.Controls.Add(this.textBoxP);
             this.Controls.Add(this.listView1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -143,8 +144,8 @@
         #endregion
 
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxP;
+        private System.Windows.Forms.TextBox textBoxQ;
         private System.Windows.Forms.Button AggiuntaQuota;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

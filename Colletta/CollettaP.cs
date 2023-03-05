@@ -8,10 +8,11 @@ namespace Colletta
 {
     public class CollettaP
     {
-        Dictionary<string, Partecipante> Raccolta;
+        private Dictionary<string, Partecipante> _raccolta;
         private string key;
         private int n;
         private float _quotatotale;
+        public Dictionary<string, Partecipante> Raccolta{get; private set;}
         public float QuotaTotale{get;private set;}
         public CollettaP()
         {
@@ -25,6 +26,7 @@ namespace Colletta
             {
                 key = "P" + n.ToString();
                 Raccolta.Add(key, p);
+                p.Id = key;
                 QuotaTotale += p.Quota;
                 n++;
             }
@@ -35,9 +37,18 @@ namespace Colletta
         {
             if (p != null)
             {
-                Raccolta.Remove(key);
+                Raccolta.Remove(p.Id);
                 QuotaTotale -= p.Quota;
                 n--;
+                /*foreach (KeyValuePair<string, Partecipante> kvp in Raccolta)
+                {
+                    if (Raccolta[kvp.Key].Nome == p.Nome)
+                    {
+                        Raccolta.Remove(key);
+                        QuotaTotale -= p.Quota;
+                        n--;
+                    }
+                }*/
             }
             else
                 throw new Exception("il reference del partecipante è null");
@@ -47,11 +58,36 @@ namespace Colletta
             if (p != null)
             {
                 QuotaTotale -= Raccolta[key].Quota;
-                Raccolta[key] = p;
+                Raccolta[p.Id] = p;
                 QuotaTotale += p.Quota;
+                /*foreach (KeyValuePair<string, Partecipante> kvp in Raccolta)
+                {
+                    if (Raccolta[kvp.Key].Nome == p.Nome)
+                    {
+                        QuotaTotale -= Raccolta[key].Quota;
+                        Raccolta[key] = p;
+                        QuotaTotale += p.Quota;
+                    }
+                }*/
             }
             else
                 throw new Exception("il reference del partecipante è null");
+        }
+        public int getCount()
+        {
+            return Raccolta.Count;
+        }
+        public string getKey(Partecipante p)
+        {
+            string temp="";
+            foreach(KeyValuePair<string,Partecipante> kvp in Raccolta)
+            {
+                if (Raccolta[kvp.Key].Nome == p.Nome)
+                {
+                    temp = kvp.Key;
+                }
+            }
+            return temp;
         }
     }
 }

@@ -8,10 +8,9 @@ namespace Colletta
 {
     public class Partecipante
     {
-        private string _nome;
-        private float _quota;
         public string Nome { get; set; }
         public float Quota { get; set; }
+        public string Id { get; set; }    
         public Partecipante(string nome, float quota)
         {
             Nome = nome;
@@ -23,7 +22,7 @@ namespace Colletta
         }
         public override string ToString()
         {
-            return Nome + " " + Quota.ToString();
+            return Id+";" + Nome + ";" + Quota.ToString();
         }
     }
 }
