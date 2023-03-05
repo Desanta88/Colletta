@@ -32,11 +32,11 @@
             this.textBoxP = new System.Windows.Forms.TextBox();
             this.textBoxQ = new System.Windows.Forms.TextBox();
             this.AggiuntaQuota = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ModificaQuota = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.totaleQuota = new System.Windows.Forms.Label();
+            this.RimuoviQuota = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -73,23 +73,15 @@
             this.AggiuntaQuota.UseVisualStyleBackColor = true;
             this.AggiuntaQuota.Click += new System.EventHandler(this.AggiuntaQuota_Click);
             // 
-            // button2
+            // ModificaQuota
             // 
-            this.button2.Location = new System.Drawing.Point(218, 333);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Rimuovi quota";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(399, 333);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Modifica quota";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ModificaQuota.Location = new System.Drawing.Point(399, 333);
+            this.ModificaQuota.Name = "ModificaQuota";
+            this.ModificaQuota.Size = new System.Drawing.Size(87, 23);
+            this.ModificaQuota.TabIndex = 5;
+            this.ModificaQuota.Text = "Modifica quota";
+            this.ModificaQuota.UseVisualStyleBackColor = true;
+            this.ModificaQuota.Click += new System.EventHandler(this.ModificaQuota_Click);
             // 
             // label1
             // 
@@ -120,16 +112,26 @@
             this.totaleQuota.TabIndex = 8;
             this.totaleQuota.Text = "Totale:0";
             // 
+            // RimuoviQuota
+            // 
+            this.RimuoviQuota.Location = new System.Drawing.Point(208, 330);
+            this.RimuoviQuota.Name = "RimuoviQuota";
+            this.RimuoviQuota.Size = new System.Drawing.Size(86, 23);
+            this.RimuoviQuota.TabIndex = 9;
+            this.RimuoviQuota.Text = "Rimuovi Quota";
+            this.RimuoviQuota.UseVisualStyleBackColor = true;
+            this.RimuoviQuota.Click += new System.EventHandler(this.RimuoviQuota_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RimuoviQuota);
             this.Controls.Add(this.totaleQuota);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ModificaQuota);
             this.Controls.Add(this.AggiuntaQuota);
             this.Controls.Add(this.textBoxQ);
             this.Controls.Add(this.textBoxP);
@@ -147,11 +149,11 @@
         private System.Windows.Forms.TextBox textBoxP;
         private System.Windows.Forms.TextBox textBoxQ;
         private System.Windows.Forms.Button AggiuntaQuota;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ModificaQuota;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label totaleQuota;
+        private System.Windows.Forms.Button RimuoviQuota;
     }
 }
 

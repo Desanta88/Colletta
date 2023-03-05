@@ -15,6 +15,7 @@ namespace Colletta
     {
         public CollettaP colletta;
         string[] intes = { "Key", "Partecipante", "Quota" };
+        Partecipante temp;
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace Colletta
 
         private void AggiuntaQuota_Click(object sender, EventArgs e)
         {
-            Partecipante temp = new Partecipante(textBoxP.Text, float.Parse(textBoxQ.Text));
+            temp = new Partecipante(textBoxP.Text, float.Parse(textBoxQ.Text));
             if (textBoxP.Text != "" && textBoxQ.Text != "")
             {
                 colletta.Aggiungi(temp);
@@ -37,6 +38,24 @@ namespace Colletta
             }
             else
                 throw new Exception("compilare tutte le textbox");
+        }
+
+        private void RimuoviQuota_Click(object sender, EventArgs e)
+        {
+            int selezionato = 0;
+            string key;
+            if (listView1.SelectedIndices.Count > 0)
+                selezionato = listView1.SelectedIndices[0];
+            key = listView1.SelectedItems[0].Text;
+            temp = colletta.Raccolta[key];
+            colletta.Rimuovi(temp);
+            listView1.Items.RemoveAt(selezionato);
+            totaleQuota.Text = "Totale:" + colletta.QuotaTotale.ToString();
+        }
+
+        private void ModificaQuota_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
