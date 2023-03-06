@@ -56,15 +56,5 @@ namespace Colletta
             else
                 throw new Exception("il reference del partecipante è null");
         }
-        public string getKey(Partecipante p)
-        {
-            string temp="";
-            foreach(KeyValuePair<string,Partecipante> kvp in Raccolta)
-            {
-                if (Raccolta[kvp.Key].Nome == p.Nome)
-                    temp = kvp.Key;
-            }
-            return temp;
-        }
     }
 }

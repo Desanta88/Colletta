@@ -32,7 +32,7 @@ namespace Colletta
             if (textBoxP.Text != "" && textBoxQ.Text != "")
             {
                 colletta.Aggiungi(temp);
-                ListViewItem riga = new ListViewItem(colletta.Raccolta[colletta.getKey(temp)].ToString().Split(';'));
+                ListViewItem riga = new ListViewItem(colletta.Raccolta[temp.Id].ToString().Split(';'));
                 listView1.Items.Add(riga);
                 totaleQuota.Text = "Totale:"+colletta.QuotaTotale.ToString();
                 textBoxP.Text = "";
