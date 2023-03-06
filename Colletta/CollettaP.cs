@@ -8,10 +8,8 @@ namespace Colletta
 {
     public class CollettaP
     {
-        private Dictionary<string, Partecipante> _raccolta;
         private string key;
         private int n;
-        private float _quotatotale;
         public Dictionary<string, Partecipante> Raccolta{get; private set;}
         public float QuotaTotale{get;private set;}
         public CollettaP()
